@@ -14,6 +14,8 @@ import { BookComponent } from './components/book/book.component';
 import { BookdetailComponent } from './components/bookdetail/bookdetail.component';
 import { SearchpageComponent } from './pages/searchpage/searchpage.component';
 import { SearchComponent } from './components/search/search.component';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,15 @@ import { SearchComponent } from './components/search/search.component';
     BookComponent,
     BookdetailComponent,
     SearchpageComponent,
-    SearchComponent
+    SearchComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

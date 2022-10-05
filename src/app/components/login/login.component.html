@@ -1,16 +1,40 @@
-<form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3"></div>
+    <div class="col-lg-6">
+      <div class="wrapper">
+          <div class="{{ 'alert '+ loginClass  }}" role="alert">
+              {{ loginResponse }}
+            </div>
+        <h2>Login</h2>
+        <hr />
+          <form [formGroup]="loginForm" (submit)="onSubmitHandler()"> 
+              <div class="form-group">
+                  <label>Username</label>
+                  <input type="text"  class="form-control" formControlName="userName"
+                  [class.is-invalid]="userName?.invalid && userName?.touched">
+                 <div *ngIf="userName?.errors && userName?.touched">
+                      <small class="text-danger" *ngIf="userName?.errors?.['required']">Username is required</small>
+                 </div>
+              </div>
+              <div class="form-group">
+                  <label>Password</label>
+                  <input type="password" class="form-control" formControlName="password"
+                  [class.is-invalid]="password?.invalid && password?.touched">
+                  <div *ngIf="password?.errors && password?.touched">
+                      <small class="text-danger" *ngIf="password?.errors?.['required']">Password is required</small>
+                      <small class="text-danger" *ngIf="password?.errors?.['minlength']">Password must be 6 character long</small>
+                 </div>
+              </div>
+              <input type="submit" value="Login" class="btn btn-primary btn-block">
+          </form>
+          <br>
+          <p class="text-center">
+              <a routerLink="/register">New User? Click Here</a>
+          </p>
+          <input type="button" (click)="onTest()" value="Test" class="btn btn-primary btn-block">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="form-group form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+    <div class="col-lg-3"></div>
+  </div>
+</div>
