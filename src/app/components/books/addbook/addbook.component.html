@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <div class="wrapper">
+          <h2>Add Book</h2>
+          <div role="alert">
+            {{ message }}
+          </div>
+          <hr />
+            <form [formGroup]="registerForm" (submit)="onSubmitHandler()"> 
+                <div class="form-group">
+                    <label>BookId</label>
+                    <input type="text"  class="form-control" formControlName="bookId"
+                    [class.is-invalid]="bookId?.invalid && bookId?.touched" numbersonly>
+                   <div *ngIf="bookId?.errors && bookId?.touched">
+                        <small class="text-danger" *ngIf="bookId?.errors?.['required']">Id is required</small>
+                        <small class="text-danger" *ngIf="bookId?.errors?.['pattern']">Numbers Only</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>CategoryId</label>
+                    <input type="text"  class="form-control" formControlName="catId"
+                    [class.is-invalid]="catId?.invalid && catId?.touched" numbersonly>
+                   <div *ngIf="catId?.errors && catId?.touched">
+                        <small class="text-danger" *ngIf="catId?.errors?.['required']">Category Id is required</small>
+                        <small class="text-danger" *ngIf="catId?.errors?.['pattern']">Numbers Only</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text"  class="form-control" formControlName="title"
+                    [class.is-invalid]="title?.invalid && title?.touched">
+                   <div *ngIf="title?.errors && title?.touched">
+                        <small class="text-danger" *ngIf="title?.errors?.['required']">Title is required</small>
+                   </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ISBN</label>
+                    <input type="text"  class="form-control" formControlName="isbn"
+                    [class.is-invalid]="isbn?.invalid && isbn?.touched">
+                   <div *ngIf="isbn?.errors && isbn?.touched">
+                        <small class="text-danger" *ngIf="isbn?.errors?.['required']">isbn is required</small>
+                   </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label>Year</label>
+                    <input type="text"  class="form-control" formControlName="year"
+                    [class.is-invalid]="year?.invalid && year?.touched" numbersonly>
+                   <div *ngIf="year?.errors && year?.touched">
+                        <small class="text-danger" *ngIf="year?.errors?.['required']">Year is required</small>
+                        <small class="text-danger" *ngIf="year?.errors?.['pattern']">Numbers Only</small>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Price</label>
+                    <input type="text"  class="form-control" formControlName="price"
+                    [class.is-invalid]="price?.invalid && price?.touched" numbersonly>
+                   <div *ngIf="price?.errors && price?.touched">
+                        <small class="text-danger" *ngIf="price?.errors?.['required']">Price is required</small>
+                        <small class="text-danger" *ngIf="price?.errors?.['pattern']">Numbers Only</small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text"  class="form-control" formControlName="description"
+                    [class.is-invalid]="description?.invalid && description?.touched">
+                   <div *ngIf="description?.errors && description?.touched">
+                        <small class="text-danger" *ngIf="description?.errors?.['required']">Description is required</small>
+                   </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Position</label>
+                    <input type="text"  class="form-control" formControlName="position"
+                    [class.is-invalid]="position?.invalid && position?.touched">
+                   <div *ngIf="position?.errors && position?.touched">
+                        <small class="text-danger" *ngIf="position?.errors?.['required']">Position is required</small>
+                   </div>
+                </div>
+
+                <div class="form-group">
+                    <label>ImageUrl</label>
+                    <input type="text" class="form-control" formControlName="image"
+                    [class.is-invalid]="image?.invalid && image?.touched">
+                </div>
+
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="text" class="form-control" formControlName="author"
+                    [class.is-invalid]="author?.invalid && author?.touched">
+                    <div *ngIf="author?.errors && author?.touched">
+                        <small class="text-danger" *ngIf="author?.errors?.['required']">Author is required</small>
+                    </div>
+                </div>
+
+                <input type="submit" value="Add" class="btn btn-primary btn-block">
+                <input type="button" (click)="onTest()" value="test" class="btn btn-primary btn-block">
+            </form>
+            <br>
+        </div>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
+  

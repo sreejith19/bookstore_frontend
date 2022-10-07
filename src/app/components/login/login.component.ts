@@ -7,6 +7,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { AuthService } from 'src/app/auth.service';
+import { DataService } from 'src/app/data.service';
  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
     userName: [null, [Validators.required]],
     password: [null, [Validators.required, Validators.minLength(6)]],
   });
-  constructor(private fb: FormBuilder, private authService: AuthService, private router:Router) {}
+  constructor(private fb: FormBuilder,private dataService:DataService, private authService: AuthService, private router:Router) {}
    
   get userName() {
     return this.loginForm.get('userName');
@@ -45,6 +46,14 @@ export class LoginComponent implements OnInit {
         this.loginClass = 'alert-success'
         
     localStorage.setItem('token',response);
+    localStorage.setItem('loginstatus',"user");
+    console.log(this.loginForm.get('userName')!.value);
+    
+    this.dataService.getUserIdByName(this.loginForm.get('userName')!.value).subscribe((data)=>{
+      localStorage.setItem('userId',data);
+      console.log(data);
+      
+    });
     this.router.navigateByUrl('home');
       },
       (error) => {

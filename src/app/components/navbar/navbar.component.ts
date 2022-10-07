@@ -8,8 +8,10 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router:Router, private auth:AuthService) { }
+  loggedIn:any;
+  constructor(private router:Router, private auth:AuthService) {
+    this.loggedIn=(localStorage.getItem('loginstatus')=="admin");
+   }
 
   onLoginButtonClick(){
     this.router.navigateByUrl('login');
@@ -21,6 +23,16 @@ export class NavbarComponent implements OnInit {
   onBooks(){
     this.router.navigateByUrl('books');
   }
+  onAdmin(){
+    this.router.navigateByUrl('admin');
+  }
+  onCart(){
+    this.router.navigateByUrl('cart');
+  }
+  onWishlist(){
+    this.router.navigateByUrl('wishlist');
+  }
+  
   ngOnInit(): void {
   }
 

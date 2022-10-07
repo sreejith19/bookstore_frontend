@@ -36,8 +36,8 @@ export class AuthService {
     addCredentials():Observable<any>{
       
     var cred={
-      "userName":"fdsertegs",
-      "password":"erwe"
+      "password":"fdsertegs",
+      "userName":"erwe"
     };
     console.log(cred);
     
@@ -45,5 +45,7 @@ export class AuthService {
     console.log(resp);
     return resp;
     }
-
+    adminLogin(data:any): Observable<any>{
+      return this.http.post(`${this.baseUrl}/login/admin`,data);
+      }
 }

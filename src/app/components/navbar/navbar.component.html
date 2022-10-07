@@ -11,7 +11,14 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" (click)="onBooks()">Books</a>
+        </li><li class="nav-item">
+          <a class="nav-link" *ngIf="!loggedIn" (click)="onCart()">Cart</a>
+        </li><li class="nav-item">
+          <a class="nav-link" *ngIf="!loggedIn" (click)="onWishlist()">Wishlist</a>
+        </li><li class="nav-item">
+          <a class="nav-link" *ngIf="loggedIn" (click)="onAdmin()">Admin</a>
         </li>
+        
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
             Dropdown

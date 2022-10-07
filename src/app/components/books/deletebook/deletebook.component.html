@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <div class="wrapper">
+          <h2>Delete Book</h2>
+          <div role="alert">
+            {{ message }}
+          </div>
+          <hr />
+            <form [formGroup]="registerForm" (submit)="onSubmitHandler()"> 
+                <div class="form-group">
+                    <label>BookId</label>
+                    <input type="text"  class="form-control" formControlName="bookId"
+                    [class.is-invalid]="bookId?.invalid && bookId?.touched" numbersonly>
+                   <div *ngIf="bookId?.errors && bookId?.touched">
+                        <small class="text-danger" *ngIf="bookId?.errors?.['required']">Id is required</small>
+                        <small class="text-danger" *ngIf="bookId?.errors?.['pattern']">Numbers Only</small>
+                    </div>
+                </div>
+
+                <input type="submit" value="Add" class="btn btn-primary btn-block">
+            </form>
+            <br>
+        </div>
+      </div>
+      <div class="col-lg-3"></div>
+    </div>
+  </div>
+  

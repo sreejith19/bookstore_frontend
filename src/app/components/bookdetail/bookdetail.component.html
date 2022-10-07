@@ -18,6 +18,11 @@
                       <p class="card-text"><i>{{book.description}}</i></p>
                       <br>
                       <a href="#" class="btn btn-primary">Buy</a>
+                      <br>
+                      <button class="btn" (click)="addToCart()">Add to cart</button>
+                      <button class="btn" (click)="addToWishList()">Add to wishlist</button>
+                      <button class="btn" (click)="removeFromCart()">Remove from cart</button>
+                      <button class="btn" (click)="removeFromWishList()">Remove from wishlist</button>
                     </div>
                   </div>
             </div>
